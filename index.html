@@ -1,11 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=ACTA%20CONSTITUTIVA.htm" />
-    <title>Redirigiendo...</title>
-  </head>
-  <body>
-    <p>Redirigiendo a la ACTA CONSTITUTIVA...</p>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal | FITBITE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 540px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(44, 62, 80, 0.16);
+            padding: 48px 36px 36px 36px;
+            text-align: center;
+            animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+            position: relative;
+            z-index: 2;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(60px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .logo {
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: #2e86de;
+            letter-spacing: 2.5px;
+            margin-bottom: 0.3em;
+            text-shadow: 0 4px 18px #e0e7ef;
+            animation: logoPop 1.1s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes logoPop {
+            0% { transform: scale(0.85) rotate(-3deg);}
+            80% { transform: scale(1.08) rotate(2deg);}
+            100% { transform: scale(1) rotate(0);}
+        }
+        .subtitle {
+            font-size: 1.18rem;
+            color: #444;
+            margin-bottom: 2.2em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: subtitleFade 1.2s 0.5s forwards;
+        }
+        @keyframes subtitleFade {
+            from { opacity: 0; transform: translateY(20px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 2.5em;
+        }
+        .menu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 340px;
+            padding: 18px 0;
+            background: linear-gradient(90deg, #2e86de 60%, #5dade2 100%);
+            color: #fff;
+            font-size: 1.13rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
+            transition: 
+                transform 0.18s cubic-bezier(.4,0,.2,1), 
+                box-shadow 0.18s cubic-bezier(.4,0,.2,1),
+                background 0.4s cubic-bezier(.4,0,.2,1),
+                letter-spacing 0.25s cubic-bezier(.4,0,.2,1);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px) scale(0.97);
+            animation: menuAppear 0.7s forwards;
+        }
+        .menu a:nth-child(1) { animation-delay: 0.5s; }
+        .menu a:nth-child(2) { animation-delay: 0.7s; }
+        .menu a:nth-child(3) { animation-delay: 0.9s; }
+        .menu a:nth-child(4) { animation-delay: 1.1s; }
+        @keyframes menuAppear {
+            to { opacity: 1; transform: translateY(0) scale(1);}
+        }
+        .menu a::after {
+            content: '';
+            position: absolute;
+            left: -60px;
+            top: 0;
+            width: 60px;
+            height: 100%;
+            background: linear-gradient(120deg, #fff6, #fff0 70%);
+            transform: skewX(-18deg);
+            opacity: 0.6;
+            transition: left 0.5s cubic-bezier(.4,0,.2,1);
+        }
+        .menu a:hover::after {
+            left: 100%;
+        }
+        .menu a:hover {
+            transform: translateY(-6px) scale(1.04) rotate(-1deg);
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
+            background: linear-gradient(90deg, #216bb0 60%, #2e86de 100%);
+            letter-spacing: 2.5px;
+        }
+        .menu a span {
+            margin-left: 12px;
+            font-size: 1.25em;
+            transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+        }
+        .menu a:hover span {
+            transform: translateX(6px) scale(1.12) rotate(-2deg);
+        }
+        .footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.97rem;
+            margin-top: 2.5em;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation: footerFade 1.2s 1.3s forwards;
+        }
+        @keyframes footerFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Fondo animado */
+        .bg-bubbles {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -120px;
+            background: linear-gradient(135deg, #2e86de 60%, #5dade2 100%);
+            opacity: 0.13;
+            border-radius: 50%;
+            animation: bubbleUp 14s linear infinite;
+        }
+        .bubble:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 16s; }
+        .bubble:nth-child(2) { left: 25%; width: 50px; height: 50px; animation-duration: 13s; }
+        .bubble:nth-child(3) { left: 40%; width: 100px; height: 100px; animation-duration: 18s; }
+        .bubble:nth-child(4) { left: 60%; width: 60px; height: 60px; animation-duration: 15s; }
+        .bubble:nth-child(5) { left: 75%; width: 90px; height: 90px; animation-duration: 19s; }
+        .bubble:nth-child(6) { left: 85%; width: 40px; height: 40px; animation-duration: 12s; }
+        @keyframes bubbleUp {
+            0% { transform: translateY(0) scale(1);}
+            80% { opacity: 0.18;}
+            100% { transform: translateY(-110vh) scale(1.15); opacity: 0;}
+        }
+        @media (max-width: 600px) {
+            .container { padding: 18px 6px; }
+            .menu a { font-size: 1rem; max-width: 98vw; }
+            .logo { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    <div class="container">
+        <div class="logo">FITBITE</div>
+        <div class="subtitle">Bienvenido(a) a la plataforma de documentos internos</div>
+        <div class="menu">
+            <a href="ACTA%20CONSTITUTIVA.htm">
+                Acta Constitutiva
+                <span>&#128196;</span>
+            </a>
+            <a href="Codigo%20Etico.htm">
+                Código Ético
+                <span>&#128221;</span>
+            </a>
+            <a href="conind.htm">
+                Contrato Individual de Trabajo
+                <span>&#128188;</span>
+            </a>
+            <a href="reghtml.htm">
+                Reglamento Interno de Trabajo
+                <span>&#128203;</span>
+            </a>
+        </div>
+        <div class="footer">
+            &copy; 2025 FITBITE. Todos los derechos reservados.
+        </div>
+    </div>
+</body>
 </html>
