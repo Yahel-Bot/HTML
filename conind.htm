@@ -25,100 +25,31 @@
             from { opacity: 0; transform: translateY(40px);}
             to { opacity: 1; transform: translateY(0);}
         }
-        .logo {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #2e86de;
-            letter-spacing: 2px;
-            margin-bottom: 0.2em;
-            text-shadow: 0 2px 8px #e0e7ef;
-            animation: slideDown 1s cubic-bezier(.4,0,.2,1);
-        }
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            color: #444;
-            margin-bottom: 1.5em;
-            font-weight: 500;
-        }
-        .team {
-            font-size: 0.98rem;
-            color: #555;
-            margin-bottom: 2em;
-            background: #f4f8fb;
-            border-radius: 10px;
-            padding: 12px 18px;
-            box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
-        }
-        h1, h2 {
-            font-family: 'Montserrat', Arial, sans-serif;
-            color: #2e86de;
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
         h1 {
-            font-size: 1.7rem;
+            font-size: 2rem;
+            color: #2e86de;
+            font-weight: 700;
             text-align: center;
-            animation: fadeInScale 1.2s cubic-bezier(.4,0,.2,1);
+            margin-bottom: 1em;
         }
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95);}
-            to { opacity: 1; transform: scale(1);}
-        }
-        h2 {
-            font-size: 1.15rem;
+        h3 {
+            color: #2e86de;
+            margin-top: 2em;
+            margin-bottom: 0.7em;
+            font-weight: 700;
             border-left: 4px solid #2e86de;
             padding-left: 12px;
             background: #f4f8fb;
             border-radius: 6px;
-            margin-top: 2em;
-            margin-bottom: 0.7em;
-            animation: fadeInLeft 1s cubic-bezier(.4,0,.2,1);
         }
-        @keyframes fadeInLeft {
-            from { opacity: 0; transform: translateX(-30px);}
-            to { opacity: 1; transform: translateX(0);}
-        }
-        p {
+        p, li {
             font-size: 1rem;
             line-height: 1.7;
-            margin-bottom: 1.2em;
+            color: #333;
         }
         ul {
-            margin: 0 0 1.2em 1.2em;
+            margin: 0 0 1.2em 1.5em;
             padding: 0;
-        }
-        li {
-            margin-bottom: 0.5em;
-        }
-        .firma-section {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2.5em;
-            gap: 30px;
-        }
-        .firma-box {
-            flex: 1;
-            background: #f4f8fb;
-            border-radius: 10px;
-            padding: 18px 16px;
-            box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
-            min-width: 220px;
-        }
-        .firma-box strong {
-            color: #2e86de;
-        }
-        .firma-line {
-            display: block;
-            border-bottom: 1.5px solid #bbb;
-            margin: 18px 0 8px 0;
-            height: 24px;
-            width: 100%;
         }
         .footer {
             text-align: center;
@@ -127,122 +58,44 @@
             margin-top: 2em;
             letter-spacing: 1px;
         }
-        /* Animación para h2 al hacer scroll */
-        h2 {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.7s cubic-bezier(.4,0,.2,1);
-        }
-        h2.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        /* Responsive */
         @media (max-width: 600px) {
             .container { padding: 18px 8px; }
-            .firma-section { flex-direction: column; gap: 10px;}
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">FITBITE</div>
-        <div class="subtitle">Contrato Individual de Trabajo</div>
-        <div class="team">
-            <strong>Equipo de Trabajo:</strong><br>
-            Ramírez Paxtian Cinthia Fernanda<br>
-            Rico Ríos Axel Emiliano<br>
-            Román Martínez Fernando Alberto<br>
-            Ruiz Soto Sebastián<br>
-            Reta Santiago Fidel<br>
-            Ramírez Soto Andrés<br>
-            Rodríguez Sánchez Yahel Abdiel
-        </div>
-
         <h1>Contrato Individual de Trabajo</h1>
-
-        <h2>PRIMERA. - Puesto y Lugar de Trabajo</h2>
-        <p>
-            El(la) trabajador(a) desempeñará el cargo de <strong>[Puesto asignado]</strong>, en las oficinas o espacios determinados por la empresa FITBITE.
-        </p>
-
-        <h2>SEGUNDA. - Duración del Contrato</h2>
-        <p>
-            Este contrato es de duración <strong>[determinada/indeterminada]</strong>, comenzando el día <strong>[fecha de inicio]</strong> y, en su caso, concluyendo el día <strong>[fecha de término]</strong>.
-        </p>
-
-        <h2>TERCERA. - Jornada Laboral</h2>
-        <p>
-            La jornada será de lunes a viernes de 9:00 a.m. a 5:00 p.m., con una hora para comida, respetando lo dispuesto por la Ley Federal del Trabajo.
-        </p>
-
-        <h2>CUARTA. - Sueldo y Forma de Pago</h2>
-        <p>
-            El(la) trabajador(a) recibirá como salario la cantidad de <strong>$[cantidad]</strong> pesos <strong>[semanal/quincenal/mensual]</strong>, que le será pagada por <strong>[transferencia bancaria/en efectivo]</strong>, los días <strong>[día de pago]</strong>.
-        </p>
-
-        <h2>QUINTA. - Obligaciones del Trabajador</h2>
+        <p>Este contrato se celebra entre FITBITE S.A. de C.V. y el trabajador, conforme a las siguientes cláusulas:</p>
+        <h3>1. Datos Generales</h3>
         <ul>
-            <li>Cumplir con las funciones propias de su cargo y seguir las instrucciones del empleador.</li>
-            <li>Guardar confidencialidad sobre la información de clientes y procesos internos.</li>
-            <li>Respetar el Reglamento Interno de Trabajo.</li>
+            <li><b>Patrón:</b> FITBITE S.A. de C.V.</li>
+            <li><b>Trabajador:</b> [Nombre del trabajador]</li>
+            <li><b>Puesto:</b> [Puesto a desempeñar]</li>
         </ul>
-
-        <h2>SEXTA. - Obligaciones del Empleador</h2>
+        <h3>2. Duración</h3>
+        <p>El presente contrato tendrá una duración [determinar si es por tiempo determinado o indeterminado], iniciando el [fecha de inicio].</p>
+        <h3>3. Jornada y Horario</h3>
+        <p>La jornada laboral será de lunes a viernes, de 9:00 a 17:00 horas, con una hora para comida.</p>
+        <h3>4. Obligaciones del Trabajador</h3>
         <ul>
-            <li>Proveer los recursos necesarios para que el trabajador desempeñe sus labores.</li>
-            <li>Pagar puntualmente el salario convenido.</li>
+            <li>Cumplir con las actividades asignadas.</li>
+            <li>Respetar el reglamento interno y el código ético de la empresa.</li>
+            <li>Guardar confidencialidad sobre la información de la empresa.</li>
+        </ul>
+        <h3>5. Obligaciones del Patrón</h3>
+        <ul>
+            <li>Pagar puntualmente el salario acordado.</li>
+            <li>Proporcionar condiciones seguras de trabajo.</li>
             <li>Respetar los derechos laborales del trabajador.</li>
         </ul>
-
-        <h2>SÉPTIMA. - Causas de Terminación</h2>
-        <p>
-            El contrato podrá darse por terminado conforme a lo establecido en la Ley Federal del Trabajo, por mutuo acuerdo o por causas justificadas.
-        </p>
-
-        <h2>OCTAVA. - Otros Términos</h2>
-        <p>
-            Ambas partes declaran conocer el Reglamento Interno de Trabajo de FITBITE y se comprometen a respetarlo.
-        </p>
-
-        <p>
-            <br>
-            Leído que fue el presente contrato y sabedoras ambas partes de su contenido y alcance legal, lo firman por duplicado, en la ciudad de <strong>[Ciudad]</strong>, a los <strong>[día]</strong> días del mes de <strong>[mes]</strong> de <strong>[año]</strong>.
-        </p>
-
-        <div class="firma-section">
-            <div class="firma-box">
-                <strong>Por parte de la empresa FITBITE:</strong>
-                <span class="firma-line"></span>
-                Nombre<br>
-                <span class="firma-line"></span>
-                Firma
-            </div>
-            <div class="firma-box">
-                <strong>Por parte del trabajador:</strong>
-                <span class="firma-line"></span>
-                Nombre<br>
-                <span class="firma-line"></span>
-                Firma
-            </div>
-        </div>
-
+        <h3>6. Salario</h3>
+        <p>El salario será de $[cantidad] MXN mensuales, pagaderos [forma y periodo de pago].</p>
+        <h3>7. Terminación</h3>
+        <p>El contrato podrá darse por terminado conforme a la Ley Federal del Trabajo y las causas establecidas en el mismo.</p>
         <div class="footer">
             &copy; 2025 FITBITE. Todos los derechos reservados.
         </div>
     </div>
-    <script>
-        // Animación para h2 al hacer scroll
-        function revealSections() {
-            document.querySelectorAll('h2').forEach(function(h2) {
-                const rect = h2.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
-                    h2.classList.add('visible');
-                }
-            });
-        }
-        window.addEventListener('scroll', revealSections);
-        window.addEventListener('DOMContentLoaded', revealSections);
-    </script>
 </body>
 </html>
