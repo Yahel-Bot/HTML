@@ -1,160 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Principal | FITBITE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>FitBite – Planes de Alimentación Personalizada y Entrega a Domicilio</title>
+    <meta name="description" content="En FitBite diseñamos planes de alimentación a tu medida, con ingredientes frescos y entrega directa. ¡Regístrate y cuida tu salud hoy mismo!">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-            font-family: 'Montserrat', Arial, sans-serif;
-            color: #222;
+        :root {
+            --verde-principal: #27ae60;
+            --verde-secundario: #219150;
+            --verde-suave: #eafaf1;
+            --verde-oscuro: #145a32;
+            --gris-fondo: #f8fafc;
+            --gris-borde: #e0e7ef;
+            --gris-texto: #2e3c4a;
+            --blanco: #fff;
+        }
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, var(--gris-fondo) 0%, var(--verde-suave) 100%);
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: var(--gris-texto);
             min-height: 100vh;
             overflow-x: hidden;
         }
-        .container {
-            max-width: 540px;
-            margin: 60px auto;
-            background: #fff;
-            border-radius: 22px;
-            box-shadow: 0 12px 40px rgba(44, 62, 80, 0.16);
-            padding: 48px 36px 36px 36px;
-            text-align: center;
-            animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
-            position: relative;
-            z-index: 2;
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(39, 174, 96, 0.08);
+            transition: all 0.3s ease;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(60px);}
-            to { opacity: 1; transform: translateY(0);}
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
         }
         .logo {
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             font-weight: 700;
-            color: #2e86de;
+            color: var(--verde-principal);
             letter-spacing: 2.5px;
-            margin-bottom: 0.3em;
-            text-shadow: 0 4px 18px #e0e7ef;
-            animation: logoPop 1.1s cubic-bezier(.68,-0.55,.27,1.55);
+            text-shadow: 0 4px 18px var(--verde-suave);
         }
-        @keyframes logoPop {
-            0% { transform: scale(0.85) rotate(-3deg);}
-            80% { transform: scale(1.08) rotate(2deg);}
-            100% { transform: scale(1) rotate(0);}
-        }
-        .subtitle {
-            font-size: 1.18rem;
-            color: #444;
-            margin-bottom: 2.2em;
-            font-weight: 500;
-            letter-spacing: 1px;
-            opacity: 0;
-            animation: subtitleFade 1.2s 0.5s forwards;
-        }
-        @keyframes subtitleFade {
-            from { opacity: 0; transform: translateY(20px);}
-            to { opacity: 1; transform: translateY(0);}
-        }
-        .menu {
+        .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 28px;
-            align-items: center;
-            margin-bottom: 2.5em;
+            list-style: none;
+            gap: 2rem;
         }
-        .menu a {
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gris-texto);
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--verde-principal);
+            transform: translateY(-2px);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--verde-principal), var(--verde-secundario));
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--verde-principal);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: flex;
+            }
+        }
+        .hero {
+            background: linear-gradient(135deg, var(--gris-fondo) 0%, var(--verde-suave) 100%);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            max-width: 340px;
-            padding: 18px 0;
-            background: linear-gradient(90deg, #2e86de 60%, #5dade2 100%);
-            color: #fff;
-            font-size: 1.13rem;
-            font-weight: 700;
-            border-radius: 12px;
-            text-decoration: none;
-            box-shadow: 0 2px 12px rgba(44, 62, 80, 0.10);
-            transition: 
-                transform 0.18s cubic-bezier(.4,0,.2,1), 
-                box-shadow 0.18s cubic-bezier(.4,0,.2,1),
-                background 0.4s cubic-bezier(.4,0,.2,1),
-                letter-spacing 0.25s cubic-bezier(.4,0,.2,1);
-            letter-spacing: 1px;
+            text-align: center;
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(30px) scale(0.97);
-            animation: menuAppear 0.7s forwards;
         }
-        .menu a:nth-child(1) { animation-delay: 0.5s; }
-        .menu a:nth-child(2) { animation-delay: 0.7s; }
-        .menu a:nth-child(3) { animation-delay: 0.9s; }
-        .menu a:nth-child(4) { animation-delay: 1.1s; }
-        @keyframes menuAppear {
-            to { opacity: 1; transform: translateY(0) scale(1);}
-        }
-        .menu a::after {
-            content: '';
-            position: absolute;
-            left: -60px;
-            top: 0;
-            width: 60px;
-            height: 100%;
-            background: linear-gradient(120deg, #fff6, #fff0 70%);
-            transform: skewX(-18deg);
-            opacity: 0.6;
-            transition: left 0.5s cubic-bezier(.4,0,.2,1);
-        }
-        .menu a:hover::after {
-            left: 100%;
-        }
-        .menu a:hover {
-            transform: translateY(-6px) scale(1.04) rotate(-1deg);
-            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.18);
-            background: linear-gradient(90deg, #216bb0 60%, #2e86de 100%);
-            letter-spacing: 2.5px;
-        }
-        .menu a span {
-            margin-left: 12px;
-            font-size: 1.25em;
-            transition: transform 0.3s cubic-bezier(.4,0,.2,1);
-        }
-        .menu a:hover span {
-            transform: translateX(6px) scale(1.12) rotate(-2deg);
-        }
-        .footer {
-            text-align: center;
-            color: #aaa;
-            font-size: 0.97rem;
-            margin-top: 2.5em;
-            letter-spacing: 1px;
-            opacity: 0;
-            animation: footerFade 1.2s 1.3s forwards;
-        }
-        @keyframes footerFade {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        /* Fondo animado */
         .bg-bubbles {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: 0;
-            overflow: hidden;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
             pointer-events: none;
         }
         .bubble {
             position: absolute;
             bottom: -120px;
-            background: linear-gradient(135deg, #2e86de 60%, #5dade2 100%);
-            opacity: 0.13;
+            background: linear-gradient(135deg, var(--verde-principal) 60%, var(--verde-secundario) 100%);
+            opacity: 0.10;
             border-radius: 50%;
-            animation: bubbleUp 14s linear infinite;
+            animation: bubbleUp 15s linear infinite;
         }
         .bubble:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 16s; }
         .bubble:nth-child(2) { left: 25%; width: 50px; height: 50px; animation-duration: 13s; }
@@ -164,49 +135,647 @@
         .bubble:nth-child(6) { left: 85%; width: 40px; height: 40px; animation-duration: 12s; }
         @keyframes bubbleUp {
             0% { transform: translateY(0) scale(1);}
-            80% { opacity: 0.18;}
+            80% { opacity: 0.15;}
             100% { transform: translateY(-110vh) scale(1.15); opacity: 0;}
         }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--verde-principal);
+            text-shadow: 0 4px 20px var(--verde-suave);
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--verde-oscuro);
+            font-weight: 400;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(90deg, var(--verde-principal) 60%, var(--verde-secundario) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(39, 174, 96, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(39, 174, 96, 0.28);
+            background: linear-gradient(90deg, var(--verde-secundario) 60%, var(--verde-principal) 100%);
+        }
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--verde-principal);
+            position: relative;
+        }
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--verde-principal), var(--verde-secundario));
+            border-radius: 2px;
+        }
+        .about-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            text-align: center;
+            color: var(--gris-texto);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 3rem 0 2rem 0;
+        }
+        .legal-buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.2rem;
+            background: linear-gradient(90deg, var(--verde-principal) 60%, var(--verde-secundario) 100%);
+            color: #fff;
+            font-size: 1.08rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(39, 174, 96, 0.10);
+            transition: 
+                transform 0.18s cubic-bezier(.4,0,.2,1), 
+                box-shadow 0.18s cubic-bezier(.4,0,.2,1),
+                background 0.4s cubic-bezier(.4,0,.2,1),
+                letter-spacing 0.25s cubic-bezier(.4,0,.2,1);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        .legal-buttons a:hover {
+            transform: translateY(-6px) scale(1.04) rotate(-1deg);
+            box-shadow: 0 8px 32px rgba(39, 174, 96, 0.18);
+            background: linear-gradient(90deg, var(--verde-secundario) 60%, var(--verde-principal) 100%);
+            letter-spacing: 2px;
+        }
+        .legal-buttons a span {
+            margin-left: 10px;
+            font-size: 1.3em;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(39, 174, 96, 0.10);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--verde-principal), var(--verde-secundario));
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(39, 174, 96, 0.15);
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--verde-principal);
+            font-weight: 600;
+        }
+        .service-card p {
+            color: var(--gris-texto);
+            line-height: 1.6;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--verde-principal), var(--verde-secundario));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 20px rgba(39, 174, 96, 0.18);
+        }
+        .step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--verde-principal);
+        }
+        .step p {
+            color: var(--gris-texto);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(39, 174, 96, 0.10);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(39, 174, 96, 0.15);
+        }
+        .team-member h4 {
+            font-size: 1.2rem;
+            color: var(--verde-principal);
+            margin-bottom: 0.5rem;
+        }
+        .team-member p {
+            color: var(--gris-texto);
+            font-size: 0.9rem;
+        }
+        .testimonials {
+            background: linear-gradient(135deg, var(--gris-fondo) 0%, var(--verde-suave) 100%);
+            margin: 0 -2rem;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(39, 174, 96, 0.10);
+            position: relative;
+        }
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: var(--verde-principal);
+            opacity: 0.3;
+        }
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--gris-texto);
+        }
+        .testimonial cite {
+            font-weight: 600;
+            color: var(--verde-principal);
+        }
+        .plans-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(39, 174, 96, 0.10);
+            margin-top: 3rem;
+        }
+        .plans-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .plans-table th {
+            background: linear-gradient(90deg, var(--verde-principal), var(--verde-secundario));
+            color: white;
+            padding: 1.5rem;
+            font-weight: 600;
+            text-align: left;
+        }
+        .plans-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gris-borde);
+        }
+        .plans-table tr:hover {
+            background: var(--verde-suave);
+        }
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(39, 174, 96, 0.10);
+            overflow: hidden;
+        }
+        .faq-question {
+            padding: 1.5rem;
+            font-weight: 600;
+            color: var(--verde-principal);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .faq-question:hover {
+            background: var(--verde-suave);
+        }
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--gris-texto);
+            line-height: 1.6;
+        }
+        footer {
+            background: var(--verde-principal);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 900px) {
+            .section { max-width: 98vw; }
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section { padding: 60px 1rem; }
+            .section h2 { font-size: 2rem; }
+            .plans-table { overflow-x: auto; }
+        }
         @media (max-width: 600px) {
-            .container { padding: 18px 6px; }
-            .menu a { font-size: 1rem; max-width: 98vw; }
-            .logo { font-size: 1.5rem; }
+            .section { padding: 18px 6px; }
+            .about-content { font-size: 0.98rem;}
+            .legal-buttons { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="bg-bubbles">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-    </div>
-    <div class="container">
-        <div class="logo">FITBITE</div>
-        <div class="subtitle">Bienvenido(a) a la plataforma de documentos internos</div>
-        <div class="menu">
-            <a href="ACTA%20CONSTITUTIVA.htm">
-                Acta Constitutiva
-                <span>&#128196;</span>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">FITBITE</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#como-funciona">Cómo Funciona</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="bg-bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Nutrición Personalizada Directo a Tu Puerta</h1>
+            <p>Tu estilo de vida saludable, hecho a la medida.</p>
+            <a href="#contacto" class="cta-button">Comienza Hoy</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <h2>¿Quiénes Somos?</h2>
+        <div class="about-content">
+            <p>FitBite es una empresa líder en soluciones de alimentación a domicilio, especializada en el diseño y entrega de planes alimenticios 100% personalizados. Combinamos el conocimiento de nutricionistas certificados con la experiencia de chefs profesionales para ofrecerte menús que se adaptan a tu ritmo de vida, a tus gustos y a tus objetivos de bienestar.</p>
+        </div>
+    </section>
+
+    <!-- Legal Documents Section -->
+    <section class="section" id="documentos-legales">
+        <h2>Documentos Legales</h2>
+        <div class="legal-buttons">
+            <a href="ACTA%20CONSTITUTIVA.htm" target="_blank">
+                Acta Constitutiva <span>&#128196;</span>
             </a>
-            <a href="codigoeticoo.htm">
-                Código Ético
-                <span>&#128221;</span>
+            <a href="codigoeticoo.htm" target="_blank">
+                Código Ético <span>&#128221;</span>
             </a>
-            <a href="conind.htm">
-                Contrato Individual de Trabajo
-                <span>&#128188;</span>
+            <a href="conind.htm" target="_blank">
+                Contrato Individual de Trabajo <span>&#128188;</span>
             </a>
-            <a href="reghtml.htm">
-                Reglamento Interno de Trabajo
-                <span>&#128203;</span>
+            <a href="reghtml.htm" target="_blank">
+                Reglamento Interno de Trabajo <span>&#128203;</span>
             </a>
         </div>
-        <div class="footer">
-            &copy; 2025 FITBITE. Todos los derechos reservados.
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section">
+        <h2>Nuestros Servicios</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Evaluación Nutricional Integral</h3>
+                <p>Entrevista detallada sobre hábitos, preferencias y objetivos. Análisis de alergias e intolerancias para asegurar tu seguridad.</p>
+            </div>
+            <div class="service-card">
+                <h3>Plan de Comidas Personalizado</h3>
+                <p>Menú semanal ajustable elaborado por expertos. Opciones vegetarianas, veganas, keto, sin gluten y más.</p>
+            </div>
+            <div class="service-card">
+                <h3>Entrega Diaria o Semanal</h3>
+                <p>Empaque ecológico y materiales 100% reciclables. Seguimiento en tiempo real de tu pedido.</p>
+            </div>
+            <div class="service-card">
+                <h3>Monitoreo y Asesoría Continua</h3>
+                <p>Reportes de progreso y recomendaciones vía app o WhatsApp. Ajustes al plan basados en tus comentarios y resultados.</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="como-funciona" class="section">
+        <h2>Cómo Funciona</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Regístrate en Línea</h3>
+                <p>Completa un formulario en menos de 5 minutos.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Entrevista con Nutricionista</h3>
+                <p>Videollamada o llamada telefónica según tu preferencia.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Recibe tu Plan y Primera Entrega</h3>
+                <p>Consulta tu menú en la app y confirma tu fecha de entrega.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Disfruta, Evalúa y Ajusta</h3>
+                <p>Feedback continuo para optimizar tus resultados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="equipo" class="section">
+        <h2>Equipo de Expertos</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h4>Dra. Ana López</h4>
+                <p>Nutricionista Clínica (UNAM)</p>
+            </div>
+            <div class="team-member">
+                <h4>Chef Ricardo Sánchez</h4>
+                <p>Especialista en Cocina Saludable</p>
+            </div>
+            <div class="team-member">
+                <h4>Mariana Paredes</h4>
+                <p>Dietista Deportiva certificada</p>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 2rem; color: var(--gris-texto);">
+            Cada miembro de nuestro equipo aporta conocimientos especializados para diseñar un plan equilibrado, delicioso y sostenible.
+        </p>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="section">
+        <h2>Testimonios</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>FitBite transformó mi relación con la comida: recetas innovadoras y un acompañamiento constante.</p>
+                <cite>— Laura Gutiérrez, Guadalajara</cite>
+            </div>
+            <div class="testimonial">
+                <p>Su sistema de ajustes continuos me ayudó a superar mi estancamiento de peso.</p>
+                <cite>— Andrés Ruiz, Puebla</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="planes" class="section">
+        <h2>Nuestros Planes</h2>
+        <div class="plans-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Comidas al Día</th>
+                        <th>Duración Mínima</th>
+                        <th>Precio Mensual*</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Activo</strong></td>
+                        <td>3</td>
+                        <td>1 mes</td>
+                        <td>$X,XXX MXN</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wellness Plus</strong></td>
+                        <td>4</td>
+                        <td>1 mes</td>
+                        <td>$X,XXX MXN</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Desempeño Elite</strong></td>
+                        <td>5</td>
+                        <td>1 mes</td>
+                        <td>$X,XXX MXN</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="text-align: center; margin-top: 1rem; color: var(--gris-texto); font-size: 0.9rem;">
+            *Precios sujetos a personalización y zona de entrega.
+        </p>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-item">
+            <div class="faq-question">¿Puedo cambiar mi plan en cualquier momento?</div>
+            <div class="faq-answer">Sí, nuestro sistema te permite pausar, cambiar o ampliar tu plan desde la app con 48 h de antelación.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">¿Qué pasa si tengo una alergia no contemplada?</div>
+            <div class="faq-answer">Notifícanos en tu entrevista inicial y adaptaremos cada receta para garantizar tu seguridad.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">¿Cómo se mantienen frescos los alimentos?</div>
+            <div class="faq-answer">Utilizamos empaques isotérmicos y materiales refrigerantes para preservar sabor y calidad hasta tu puerta.</div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contacto" class="section" style="text-align: center; background: linear-gradient(135deg, var(--gris-fondo) 0%, var(--verde-suave) 100%); margin: 0 -2rem; padding: 4rem 2rem; border-radius: 20px;">
+        <h2>¿Listo para transformar tu alimentación?</h2>
+        <a href="#" class="cta-button" style="margin-top: 2rem;">Solicita tu Evaluación Gratuita</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Aviso de Privacidad</a>
+                <a href="mailto:contacto@fitbite.mx">Soporte: contacto@fitbite.mx</a>
+            </div>
+            <div class="footer-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.8;">© 2025 FitBite S.A. de C.V. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith("#")) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isVisible = answer.style.display === 'block';
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                if (!isVisible) {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        document.querySelectorAll('.section, .service-card, .step, .team-member').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
